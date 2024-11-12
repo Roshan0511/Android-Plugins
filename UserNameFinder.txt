@@ -1,0 +1,19 @@
+fun formatName(name: String): String {
+    val words = name.split(" ")
+    
+    return when {
+        words.isEmpty() -> ""
+        words[0].length > 2 -> words[0]  // First word length is 2 or more
+        words.size > 1 && words[1].length > 2 -> words[1]  // First word is less than 2, use second word
+        words.size > 1 -> "${words[0][0]}${words[1][0]}"  // Both words are shorter, use initials
+        else -> words[0]  // Single word case
+    }
+}
+
+fun main() {
+    val names = listOf("Satya Narayan", "K Ramnath Shah", "Roshan Kumar Jha", "Amit", "Jo Jo", "K Kunal")
+
+    for (name in names) {
+        println(formatName(name))
+    }
+}
